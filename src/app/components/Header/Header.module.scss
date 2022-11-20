@@ -7,8 +7,16 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 5px 5px rgba(109, 109, 109, 0.25);
+  background-color: darkslategray;
+  color: beige;
+  font-weight: bold;
 
   button {
+    height: 30px;
+    margin-right: 10px;
     border: medium groove aquamarine;
+    border-radius: 3px;
+    font-weight: inherit;
+    background-color: aquamarine;
   }
 }

@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import s from './Header.module.scss'
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [demoMode, setDemoMode] = useState<boolean>(false)
   const definedDemoMode = demoMode ? 'Stop Demo' : 'Start Demo'
   const changeDemoMode = () => {
     setDemoMode(!demoMode)
   }
   return (
-    <section className={s.header}>
+    <header className={s.header}>
       <div>
         <button>layer1</button>
         <button>layer2</button>
@@ -18,6 +18,6 @@ export const Header = () => {
         {definedDemoMode}
       </button>
 
-    </section>
+    </header>
   );
 };
