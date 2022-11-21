@@ -1,8 +1,7 @@
 import {v1} from "uuid";
-import {AnyAction} from "redux";
 
 
-const inputData: inputDataElementType[] = [
+export const inputData: inputDataElementType[] = [
   {
     "type": "Feature",
     "geometry": {
@@ -459,11 +458,41 @@ const inputData: inputDataElementType[] = [
   }
 ]
 
-export const initialState = inputData.map(el => ({...el, id: v1()}))
-
-export const layer1Reducer = (state=initialState, action:AnyAction)=>{
-return state
+export const initialState: InitialStateType = {
+  inputData: [],
+  search: ''
 }
+
+export const layer1Reducer = (state: InitialStateType = initialState, action: Layer1ReducerActionsType): InitialStateType => {
+  switch (action.type) {
+    case 'LAYER1/SET-INITIAL-STATE':
+
+      return {
+        ...state, inputData: action.payload.inputData.map(el => {
+            el.id = v1()
+            return el
+          }
+        )
+      }
+    case 'LAYER1/SET-NAME-SEARCH':
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return state
+  }
+
+}
+
+
+//action creators
+export const setInitialStateAC = (inputData: inputDataElementType[]) => ({
+  type: 'LAYER1/SET-INITIAL-STATE',
+  payload: {inputData}
+} as const)
+export const setNameSearchAC = (search: string) =>
+  ({type: 'LAYER1/SET-NAME-SEARCH', payload: {search}} as const);
 
 //types
 export type inputDataElementType = {
@@ -480,6 +509,11 @@ export type inputDataElementType = {
     "note"?: string
   }
 }
-export type InitialStateType = typeof initialState;
+export type InitialStateType = {
+  inputData: inputDataElementType[],
+  search: string;
+};
+type SetNameSearchACType = ReturnType<typeof setNameSearchAC>
+type SetInitialStateACType = ReturnType<typeof setInitialStateAC>
 
-
+export type Layer1ReducerActionsType = SetNameSearchACType | SetInitialStateACType

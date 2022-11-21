@@ -2,11 +2,12 @@ import React, {ChangeEvent, useEffect, useState} from 'react';
 import {InputAdornment, TextField, Typography} from "@mui/material";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import {useDispatch} from "react-redux";
-import {AnyAction} from "redux";
+import {Layer1ReducerActionsType} from "../../../store/layer1-reducer";
+import s from './Search.module.scss'
 
 
 type SearchPropsType = {
-  action: (value: string) => AnyAction;
+  action: (value: string) => Layer1ReducerActionsType;
   search: string;
 };
 
@@ -20,15 +21,15 @@ export const Search = ({action, search}: SearchPropsType) => {
     setSearchValue(event.target.value);
   };
   useEffect(() => {
-    dispatch(action(searchValue));
+    dispatch(action(searchValue.trim()));
   }, [action, searchValue, dispatch]);
 
   return (
-    <div style={{marginTop: '10px'}}>
-      <Typography component="p">Search</Typography>
+    <div className={s.search}>
+      <Typography component="p">Search by Name</Typography>
       <TextField
         fullWidth
-        placeholder='Search by column "name"'
+        placeholder='Enter search text here...'
         type="search"
         color="primary"
         variant="outlined"

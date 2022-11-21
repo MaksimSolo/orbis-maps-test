@@ -1,0 +1,19 @@
+.firstColumn {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 70px;
+  text-overflow: ellipsis;
+  position: relative;
+
+  &:hover {
+
+    overflow: visible;
+    text-overflow: inherit;
+
+    span {
+      position: absolute;
+      top: 15px;
+      background: beige;
+    }
+  }
+}
