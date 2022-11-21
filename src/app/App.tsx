@@ -1,7 +1,9 @@
 import React from 'react';
 import {Header} from "./components/Header/Header";
 import {MapComponent} from "./components/MapComponent/MapComponent";
-import {Table} from "./components/Table/Table";
+
+import {Search} from "./components/Search/Search";
+import {TableGeneral} from "./components/Table/TableGeneral";
 
 
 function App() {
@@ -9,7 +11,8 @@ function App() {
     <>
       <Header/>
       <MapComponent/>
-      <Table/>
+      {/*<Search action={setNameSearchAC} search={searchByName} />*/}
+      <TableGeneral/>
     </>
   )
     ;
