@@ -4,7 +4,7 @@ import {MapComponent} from "./components/MapComponent/MapComponent";
 
 import {Search} from "./components/Search/Search";
 import {TableGeneral} from "./components/Table/TableGeneral";
-import {inputData, setInitialStateAC, setNameSearchAC} from "../store/layer1-reducer";
+import {inputData, setInitialStateAC, setSearchedDataAC} from "../store/layer1-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store/store";
 
@@ -15,14 +15,14 @@ function App() {
 
   useEffect(() => {
     dispatch(setInitialStateAC(inputData))
-  }, [inputData])
+  }, [])
 
   return (
     <>
       <Header/>
       <MapComponent/>
-      <Search action={setNameSearchAC} search={search}/>
-      <TableGeneral/>
+      <Search action={setSearchedDataAC} search={search}/>
+      <TableGeneral search={search}/>
     </>
   )
     ;

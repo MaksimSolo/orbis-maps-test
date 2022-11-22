@@ -1,7 +1,7 @@
-import {v1} from "uuid";
+import {setIdToInputData} from "../utils/setIdToInputData";
 
 
-export const inputData: inputDataElementType[] = [
+export const inputData: inputDataElementType[] = setIdToInputData([
   {
     "type": "Feature",
     "geometry": {
@@ -456,29 +456,27 @@ export const inputData: inputDataElementType[] = [
       "address": "1226 36th St NW"
     }
   }
-]
+]);
+
 
 export const initialState: InitialStateType = {
   inputData: [],
-  search: ''
+  search: '',
+  filteredData: [],
 }
 
 export const layer1Reducer = (state: InitialStateType = initialState, action: Layer1ReducerActionsType): InitialStateType => {
   switch (action.type) {
     case 'LAYER1/SET-INITIAL-STATE':
-
       return {
-        ...state, inputData: action.payload.inputData.map(el => {
-            el.id = v1()
-            return el
-          }
-        )
+        ...state, ...action.payload,
       }
-    case 'LAYER1/SET-NAME-SEARCH':
+    case 'LAYER1/SET-DATA-SEARCHED-BY-NAME':
       return {
-        ...state,
+        ...state, filteredData: state.inputData.filter(el => el.properties.name
+          .toLowerCase().indexOf(action.payload.search.toLowerCase()) > -1),
         ...action.payload,
-      };
+      }
     default:
       return state
   }
@@ -491,8 +489,9 @@ export const setInitialStateAC = (inputData: inputDataElementType[]) => ({
   type: 'LAYER1/SET-INITIAL-STATE',
   payload: {inputData}
 } as const)
-export const setNameSearchAC = (search: string) =>
-  ({type: 'LAYER1/SET-NAME-SEARCH', payload: {search}} as const);
+
+export const setSearchedDataAC = (search: string) =>
+  ({type: 'LAYER1/SET-DATA-SEARCHED-BY-NAME', payload: {search}} as const);
 
 //types
 export type inputDataElementType = {
@@ -510,10 +509,12 @@ export type inputDataElementType = {
   }
 }
 export type InitialStateType = {
-  inputData: inputDataElementType[],
-  search: string;
+  inputData: inputDataElementType[]
+  search: string
+  filteredData: inputDataElementType[]
 };
-type SetNameSearchACType = ReturnType<typeof setNameSearchAC>
-type SetInitialStateACType = ReturnType<typeof setInitialStateAC>
 
-export type Layer1ReducerActionsType = SetNameSearchACType | SetInitialStateACType
+type SetInitialStateACType = ReturnType<typeof setInitialStateAC>
+type SetSearchedDataACType = ReturnType<typeof setSearchedDataAC>
+
+export type Layer1ReducerActionsType = SetInitialStateACType | SetSearchedDataACType

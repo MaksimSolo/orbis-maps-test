@@ -3,14 +3,18 @@ import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow}
 import {useSelector} from "react-redux";
 import {inputDataElementType} from "../../../store/layer1-reducer";
 import {AppRootStateType} from "../../../store/store";
-import s from './TableGeneral.module.scss'
+import {TableRows} from "./TableRows/TableRows";
 
 const TABLE_COLUMNS_NAMES = ['ID', 'Name', 'Address', 'Latitude', 'Longitude']
 
+type TableGeneralType = {
+  search: string
+}
 
-export const TableGeneral: React.FC = memo(() => {
+export const TableGeneral = memo(({search}: TableGeneralType) => {
 
-  const tableRowElem = useSelector<AppRootStateType, inputDataElementType[]>(state => state.layer1.inputData.map(el => el))
+  const tableRowElem = useSelector<AppRootStateType, inputDataElementType[]>(state =>
+    !search ? state.layer1.inputData : state.layer1.filteredData)
   const columnsNames = useMemo(() => TABLE_COLUMNS_NAMES.map((n, index) =>
     <TableCell key={index}
                sx={{
@@ -18,15 +22,10 @@ export const TableGeneral: React.FC = memo(() => {
                  color: 'beige'
                }}>{n}
     </TableCell>), [])
-  const tableRowsForRender = useMemo(() => tableRowElem && tableRowElem.map(el =>
-      <TableRow key={el.id} sx={{backgroundColor: 'lightgray',}}>
-        <TableCell className={s.firstColumn}
-                   scope="row"><span>{el.id}</span></TableCell>
-        <TableCell scope="row">{el.properties.name}</TableCell>
-        <TableCell scope="row">{el.properties.address}</TableCell>
-        <TableCell scope="row">{el.geometry.coordinates[0]}</TableCell>
-        <TableCell scope="row">{el.geometry.coordinates[1]}</TableCell>
-      </TableRow>),
+  const tableRowsForRender = useMemo(() => tableRowElem.length ? tableRowElem.map(el =>
+      <TableRows key={el.id} element={el}/>) : <TableRow>
+      <TableCell>Points not found</TableCell>
+    </TableRow>,
     [tableRowElem]
   )
 
@@ -39,10 +38,7 @@ export const TableGeneral: React.FC = memo(() => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableRowsForRender ||
-              <TableRow>
-                  <TableCell>Points not found</TableCell>
-              </TableRow>}
+          {tableRowsForRender}
         </TableBody>
       </Table>
     </TableContainer>

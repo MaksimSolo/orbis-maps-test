@@ -22,7 +22,7 @@ export const Search = ({action, search}: SearchPropsType) => {
   };
   useEffect(() => {
     dispatch(action(searchValue.trim()));
-  }, [action, searchValue, dispatch]);
+  }, [searchValue, dispatch, action]);
 
   return (
     <div className={s.search}>
@@ -33,7 +33,7 @@ export const Search = ({action, search}: SearchPropsType) => {
         type="search"
         color="primary"
         variant="outlined"
-        value={searchValue}
+        value={search}
         onChange={onChangeTextSearch}
         InputProps={{
           startAdornment: (
