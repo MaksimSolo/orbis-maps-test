@@ -1,44 +1,43 @@
-import {formattingInputData} from "../utils/formattingInputData";
-import {LatLngTuple} from "leaflet";
-
-const inputDataFromFile: inputDataElementType[] = formattingInputData([
+[
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.039882,
-        38.898321
+        38.898321,
+        -77.039882
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "The Exchange",
       "address": "1719 G St NW"
-    }
+    },
+    "id": "f7a365c0-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.038193,
-        38.901345
+        38.901345,
+        -77.038193
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Blackfin",
       "address": "1620 I St NW"
-    }
+    },
+    "id": "f7a38cd0-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.03195,
-        38.907826
+        38.907826,
+        -77.03195
       ]
     },
     "properties": {
@@ -46,262 +45,280 @@ const inputDataFromFile: inputDataElementType[] = formattingInputData([
       "name": "Churchkey",
       "address": "1337 14th St NW",
       "note": "Ask the bartender for the password"
-    }
+    },
+    "id": "f7a38cd1-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.018728,
-        38.902708
+        38.902708,
+        -77.018728
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Busboys and Poets",
       "address": "1025 5th St NW, Washington DC, 20001"
-    }
+    },
+    "id": "f7a38cd2-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.047745,
-        38.909637
+        38.909637,
+        -77.047745
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "SoHo Cafe",
       "address": "2150 P St NW"
-    }
+    },
+    "id": "f7a38cd3-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.018627,
-        38.899924
+        38.899924,
+        -77.018627
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Chinatown Coffee Company",
       "address": "475 H St NW"
-    }
+    },
+    "id": "f7a38cd4-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.04345,
-        38.905342
+        38.905342,
+        -77.04345
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Science Club",
       "address": "1136 19th St NW"
-    }
+    },
+    "id": "f7a38cd5-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.027744,
-        38.929675
+        38.929675,
+        -77.027744
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Wonderland Ballroom",
       "address": "  1101 Kenyon St NW"
-    }
+    },
+    "id": "f7a38cd6-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.031888,
-        38.930366
+        38.930366,
+        -77.031888
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Sticky Fingers Bakery",
       "address": "1370 Park Rd NW, Washington, DC 20010"
-    }
+    },
+    "id": "f7a38cd7-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -76.940028,
-        38.954998
+        38.954998,
+        -76.940028
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Busboys and Poets",
       "address": "5331 Baltimore Ave, Hyattsville, MD 20781"
-    }
+    },
+    "id": "f7a38cd8-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.031863,
-        38.917992
+        38.917992,
+        -77.031863
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Busboys and Poets",
       "address": "2021 14th St NW, Washington, DC 20009"
-    }
+    },
+    "id": "f7a38cd9-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.042438,
-        38.921894
+        38.921894,
+        -77.042438
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Tryst",
       "address": "2459 18th St NW"
-    }
+    },
+    "id": "f7a38cda-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.09089599999999,
-        38.88924
+        38.88924,
+        -77.09089599999999
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Arlington Pub at Whole Foods Market",
       "address": "2700 Wilson Blvd, Arlington, VA 22201"
-    }
+    },
+    "id": "f7a38cdb-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.1080128,
-        38.8801218
+        38.8801218,
+        -77.1080128
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Buzz Bakery Coffee & Lounge",
       "address": "818 N Quincy St, Arlington, VA 22203"
-    }
+    },
+    "id": "f7a38cdc-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.097225,
-        38.8859
+        38.8859,
+        -77.097225
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Northside Social",
       "address": "3211 Wilson Blvd, Arlington, VA 22201"
-    }
+    },
+    "id": "f7a38cdd-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.1080128,
-        38.8801218
+        38.8801218,
+        -77.1080128
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Buzz Bakery Coffee & Lounge",
       "address": "818 N Quincy St, Arlington, VA 22203"
-    }
+    },
+    "id": "f7a38cde-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.0866120204082,
-        38.8627485306122
+        38.8627485306122,
+        -77.0866120204082
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Twisted Vines Bottleshop & Bistro",
       "address": "2803 Columbia Pike, Arlington, VA 22204"
-    }
+    },
+    "id": "f7a38cdf-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.089559,
-        38.841205
+        38.841205,
+        -77.089559
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Busboys and Poets",
       "address": "4251 Campbell Ave, Arlington, VA 22206"
-    }
+    },
+    "id": "f7a38ce0-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.045067,
-        38.821598
+        38.821598,
+        -77.045067
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Buzz Bakery Coffee & Lounge",
       "address": "901 Slaters Lane, Alexandria, VA 22314"
-    }
+    },
+    "id": "f7a38ce1-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.012659,
-        38.915561
+        38.915561,
+        -77.012659
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Boundary Stone Public House",
       "address": "116 Rhode Island Ave NW"
-    }
+    },
+    "id": "f7a38ce2-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
@@ -313,25 +330,27 @@ const inputDataFromFile: inputDataElementType[] = formattingInputData([
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.02017903327942,
-        38.91535424264446
+        38.91535424264446,
+        -77.02017903327942
       ]
-    }
+    },
+    "id": "f7a38ce3-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.011702,
-        38.915533
+        38.915533,
+        -77.011702
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Rustik Neighborhood Tavern",
       "address": "84 T St. NW"
-    }
+    },
+    "id": "f7a38ce4-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
@@ -344,10 +363,11 @@ const inputDataFromFile: inputDataElementType[] = formattingInputData([
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.033644,
-        38.898077
+        38.898077,
+        -77.033644
       ]
-    }
+    },
+    "id": "f7a38ce5-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
@@ -360,18 +380,19 @@ const inputDataFromFile: inputDataElementType[] = formattingInputData([
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.031950,
-        38.911532
+        38.911532,
+        -77.03195
       ]
-    }
+    },
+    "id": "f7a38ce6-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.0276460,
-        38.9007690
+        38.900769,
+        -77.027646
       ]
     },
     "properties": {
@@ -379,143 +400,87 @@ const inputDataFromFile: inputDataElementType[] = formattingInputData([
       "name": "Capitol City Brewing Company",
       "address": "1100 New York Ave NW",
       "note": "Ask the bartender for the password"
-    }
+    },
+    "id": "f7a38ce7-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.036554,
-        38.900201
+        38.900201,
+        -77.036554
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Off The Record",
       "address": "800 16th St NW"
-    }
+    },
+    "id": "f7a38ce8-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.071309,
-        38.919986
+        38.919986,
+        -77.071309
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "breadsoda",
       "address": "2233 Wisconsin Ave NW"
-    }
+    },
+    "id": "f7a38ce9-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.042084,
-        38.906459
+        38.906459,
+        -77.042084
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "St. Arnold's on Jefferson",
       "address": "1827 Jefferson Pl NW"
-    }
+    },
+    "id": "f7a38cea-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.028620,
-        38.931821
+        38.931821,
+        -77.02862
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "Meridian Pint",
       "address": "3400 11th St NW"
-    }
+    },
+    "id": "f7a38ceb-6bca-11ed-8d49-3de9ff4dab30"
   },
   {
     "type": "Feature",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -77.070275,
-        38.906094
+        38.906094,
+        -77.070275
       ]
     },
     "properties": {
       "marker-symbol": "bar",
       "name": "The Tombs",
       "address": "1226 36th St NW"
-    }
+    },
+    "id": "f7a38cec-6bca-11ed-8d49-3de9ff4dab30"
   }
-]);
-const inputDataForConverting = JSON.stringify(inputDataFromFile)
-console.log(inputDataForConverting)
-
-export const initialState: InitialStateType = {
-  inputData: [],
-  search: '',
-  filteredData: [],
-}
-
-export const layer1Reducer = (state: InitialStateType = initialState, action: Layer1ReducerActionsType): InitialStateType => {
-  switch (action.type) {
-    case 'LAYER1/SET-INITIAL-STATE':
-      return {
-        ...state, ...action.payload,
-      }
-    case 'LAYER1/SET-DATA-SEARCHED-BY-NAME':
-      return {
-        ...state, filteredData: state.inputData.filter(el => el.properties.name
-          .toLowerCase().indexOf(action.payload.search.toLowerCase()) > -1),
-        ...action.payload,
-      }
-    default:
-      return state
-  }
-
-}
-
-
-//action creators
-export const setInitialStateAC = (inputData: inputDataElementType[]) => ({
-  type: 'LAYER1/SET-INITIAL-STATE',
-  payload: {inputData}
-} as const)
-
-export const setSearchedDataAC = (search: string) =>
-  ({type: 'LAYER1/SET-DATA-SEARCHED-BY-NAME', payload: {search}} as const);
-
-//types
-export type inputDataElementType = {
-  "id"?: string
-  "type": string,
-  "geometry": {
-    "type": string,
-    "coordinates": LatLngTuple
-  },
-  "properties": {
-    "marker-symbol": string,
-    "name": string,
-    "address": string,
-    "note"?: string
-  }
-}
-export type InitialStateType = {
-  inputData: inputDataElementType[]
-  search: string
-  filteredData: inputDataElementType[]
-};
-
-type SetInitialStateACType = ReturnType<typeof setInitialStateAC>
-type SetSearchedDataACType = ReturnType<typeof setSearchedDataAC>
-
-export type Layer1ReducerActionsType = SetInitialStateACType | SetSearchedDataACType
+]

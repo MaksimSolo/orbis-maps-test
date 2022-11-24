@@ -29,7 +29,7 @@ export const Search = ({action, search}: SearchPropsType) => {
       <Typography component="p">Search by Name</Typography>
       <TextField
         fullWidth
-        placeholder='Enter search text here...'
+        placeholder='Enter text for searching...'
         type="search"
         color="primary"
         variant="outlined"

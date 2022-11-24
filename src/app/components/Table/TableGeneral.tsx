@@ -1,20 +1,16 @@
 import React, {memo, useMemo} from 'react';
 import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {useSelector} from "react-redux";
 import {inputDataElementType} from "../../../store/layer1-reducer";
-import {AppRootStateType} from "../../../store/store";
-import {TableRows} from "./TableRows/TableRows";
+import {TableRowsData} from "./TableRows/TableRowsData";
 
 const TABLE_COLUMNS_NAMES = ['ID', 'Name', 'Address', 'Latitude', 'Longitude']
 
 type TableGeneralType = {
-  search: string
+  geoData: inputDataElementType[]
 }
 
-export const TableGeneral = memo(({search}: TableGeneralType) => {
+export const TableGeneral = memo(({geoData}: TableGeneralType) => {
 
-  const tableRowElem = useSelector<AppRootStateType, inputDataElementType[]>(state =>
-    !search ? state.layer1.inputData : state.layer1.filteredData)
   const columnsNames = useMemo(() => TABLE_COLUMNS_NAMES.map((n, index) =>
     <TableCell key={index}
                sx={{
@@ -22,11 +18,12 @@ export const TableGeneral = memo(({search}: TableGeneralType) => {
                  color: 'beige'
                }}>{n}
     </TableCell>), [])
-  const tableRowsForRender = useMemo(() => tableRowElem.length ? tableRowElem.map(el =>
-      <TableRows key={el.id} element={el}/>) : <TableRow>
+
+  const tableRowsForRender = useMemo(() => geoData.length ? geoData.map(el =>
+      <TableRowsData key={el.id} element={el}/>) : <TableRow>
       <TableCell>Points not found</TableCell>
     </TableRow>,
-    [tableRowElem]
+    [geoData]
   )
 
   return (
