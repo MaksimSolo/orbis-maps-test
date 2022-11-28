@@ -6,10 +6,10 @@ type PointsType = {
   data: inputDataElementType
 }
 
-export const Points = ({data}: PointsType) => {
+export const Point = ({data}: PointsType) => {
   return (
-    <Marker position={data.geometry.coordinates}>
-      <Popup>
+    <Marker interactive position={data.geometry.coordinates}>
+      <Popup >
         <div>
           <h2><strong>{data.properties.name}</strong></h2>
           <span>{data.properties.address}</span>

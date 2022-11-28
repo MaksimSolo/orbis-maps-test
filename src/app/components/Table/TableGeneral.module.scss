@@ -17,3 +17,9 @@
     }
   }
 }
+
+.nameSpan {
+  &.active, :hover {
+    font-weight: bold;
+  }
+}

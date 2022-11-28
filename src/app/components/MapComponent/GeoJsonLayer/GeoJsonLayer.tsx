@@ -1,15 +1,15 @@
 import React from 'react';
 import {inputDataElementType} from "../../../../store/layer1-reducer";
 import {FeatureGroup} from "react-leaflet";
-import {Points} from "./Points/Points";
+import {Point} from "./Points/Point";
 
 type GeoJsonLayerType = {
   geoData: inputDataElementType[]
 }
 
 export const GeoJsonLayer = ({geoData}: GeoJsonLayerType) => {
-
-  const points = geoData && geoData.map(el=> <Points key={el.id} data={el}/>)
+  console.log('GeoJsonLayer')
+  const points = geoData && geoData.map(el=> <Point key={el.id} data={el}/>)
 
   return (
     <FeatureGroup>

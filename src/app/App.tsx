@@ -9,11 +9,15 @@ import {inputDataElementType, setInitialStateAC, setSearchedDataAC} from "../sto
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../store/store";
 
+
 function App() {
   const dispatch = useDispatch()
+
   const search = useSelector<AppRootStateType, string>(state => state.layer1.search)
   const geoData = useSelector<AppRootStateType, inputDataElementType[]>(state =>
     !search ? state.layer1.inputData : state.layer1.filteredData)
+
+
 
   useEffect(() => {
     dispatch(setInitialStateAC(inputData as inputDataElementType[]))
