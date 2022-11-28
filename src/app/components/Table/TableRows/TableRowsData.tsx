@@ -15,12 +15,13 @@ import {AppRootStateType} from "../../../../store/store";
 type TableRowsType = {
   element: inputDataElementType
   currentPointId: string
+  clicked: boolean
+  setClicked: (value: boolean) => void
 }
 
 
-export const TableRowsData = ({element, currentPointId}: TableRowsType) => {
+export const TableRowsData = ({element, currentPointId, setClicked, clicked}: TableRowsType) => {
 
-  const [clicked, SetClicked] = useState<boolean>(false)
   const dispatch = useDispatch()
   const currentMapParams = {center: element.geometry.coordinates, zoom: 17}
   const defaultMapParams = useSelector<AppRootStateType, MapParamsType>(state => state.layer1.defaultMapParams)
@@ -28,13 +29,11 @@ export const TableRowsData = ({element, currentPointId}: TableRowsType) => {
 
   const toggleViewMarkerData = () => {
     if (element.id) {
-      if (!clicked) {
-        SetClicked(true)
-        dispatch(toggleViewMarkerDataAC(currentMapParams))
-        dispatch(setCurrentPointIdAC(element.id))
-
-      } else {
-        SetClicked(false)
+      setClicked(true)
+      dispatch(toggleViewMarkerDataAC(currentMapParams))
+      dispatch(setCurrentPointIdAC(element.id))
+      if (element.id === currentPointId && clicked) {
+        setClicked(false)
         dispatch(toggleViewMarkerDataAC(defaultMapParams))
         dispatch(setCurrentPointIdAC(''))
       }

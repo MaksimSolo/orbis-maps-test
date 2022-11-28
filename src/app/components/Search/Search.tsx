@@ -1,9 +1,16 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import {InputAdornment, TextField, Typography} from "@mui/material";
+import {IconButton, InputAdornment, TextField, Typography} from "@mui/material";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import {useDispatch} from "react-redux";
-import {Layer1ReducerActionsType} from "../../../store/layer1-reducer";
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import {useDispatch, useSelector} from "react-redux";
+import {
+  Layer1ReducerActionsType,
+  MapParamsType,
+  setCurrentPointIdAC,
+  toggleViewMarkerDataAC
+} from "../../../store/layer1-reducer";
 import s from './Search.module.scss'
+import {AppRootStateType} from "../../../store/store";
 
 
 type SearchPropsType = {
@@ -16,10 +23,16 @@ export const Search = ({action, search}: SearchPropsType) => {
 
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState<string>(search);
+  const defaultMapParams = useSelector<AppRootStateType, MapParamsType>(state => state.layer1.defaultMapParams)
 
   const onChangeTextSearch = (event: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(event.target.value);
   };
+  const clearSearch = () => {
+    setSearchValue("")
+    dispatch(toggleViewMarkerDataAC(defaultMapParams))
+    dispatch(setCurrentPointIdAC(''))
+  }
   useEffect(() => {
     dispatch(action(searchValue.trim()));
   }, [searchValue, dispatch, action]);
@@ -30,7 +43,7 @@ export const Search = ({action, search}: SearchPropsType) => {
       <TextField
         fullWidth
         placeholder='Enter text for searching...'
-        type="search"
+        type="text"
         color="primary"
         variant="outlined"
         value={search}
@@ -41,6 +54,11 @@ export const Search = ({action, search}: SearchPropsType) => {
               <SearchOutlinedIcon/>
             </InputAdornment>
           ),
+          endAdornment: (
+            <IconButton onClick={clearSearch}>
+              {searchValue.length > 0 ? <ClearOutlinedIcon color="primary"/> : ''}
+            </IconButton>
+          )
         }}
       />
     </div>

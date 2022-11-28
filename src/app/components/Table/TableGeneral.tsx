@@ -13,6 +13,8 @@ type TableGeneralType = {
 
 export const TableGeneral = memo(({geoData,}: TableGeneralType) => {
 
+  const [clicked, SetClicked] = useState<boolean>(false)
+
   const currentPointId = useSelector<AppRootStateType, string>(state => state.layer1.currentPointId)
 
   const columnsNames = useMemo(() => TABLE_COLUMNS_NAMES.map((n, index) =>
@@ -24,7 +26,7 @@ export const TableGeneral = memo(({geoData,}: TableGeneralType) => {
     </TableCell>), [])
 
   const tableRowsForRender = geoData.length ? geoData.map(el =>
-    <TableRowsData key={el.id} element={el} currentPointId={currentPointId}/>) : <TableRow>
+    <TableRowsData key={el.id} element={el} currentPointId={currentPointId} clicked={clicked} setClicked={SetClicked}/>) : <TableRow>
     <TableCell>Points not found</TableCell>
   </TableRow>;
 
