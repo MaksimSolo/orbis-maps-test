@@ -8,7 +8,7 @@ type PointsType = {
 
 export const Point = ({data}: PointsType) => {
   return (
-    <Marker interactive position={data.geometry.coordinates}>
+    <Marker position={data.geometry.coordinates}>
       <Popup >
         <div>
           <h2><strong>{data.properties.name}</strong></h2>

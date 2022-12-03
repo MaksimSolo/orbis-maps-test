@@ -4,7 +4,6 @@ export const raw = `14800;1;"шоссе Энтузиастов, кинотеат
   '14811;2;"шоссе Энтузиастов, кинотеатр ""Факел""";shosse Entuziastov, tramway stop;82;out;55.7515293;37.7163578;740;41;36;0;0;350;950;19;1;201'`
 
 
-
 // const array = []
 // for (let i=0; i<raw.split(';').length;) {
 //   array.push(
@@ -19,4 +18,3 @@ export const raw = `14800;1;"шоссе Энтузиастов, кинотеат
 // }
 //
 // console.log(array)
-

@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React from 'react';
 import L from 'leaflet';
 import {MapContainer, TileLayer} from "react-leaflet";
 import s from './MapComponent.module.scss'
@@ -17,10 +17,8 @@ export const MapComponent = ({geoData,}: MapComponentType) => {
   console.log('MapComponent')
 
   const defaultMapParams = useSelector<AppRootStateType, MapParamsType>(state => state.layer1.defaultMapParams)
-  const currentMapParams = useSelector<AppRootStateType, MapParamsType>(state => state.layer1.currentMapParams)
   const currentPointId = useSelector<AppRootStateType, string>(state => state.layer1.currentPointId)
 
-  console.log(currentMapParams)
   return (
     <section>
       <MapContainer className={s.map}
@@ -30,8 +28,10 @@ export const MapComponent = ({geoData,}: MapComponentType) => {
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {currentMapParams.center.length && <ShowCurrentPoint currentMapParams={currentMapParams}/>}
-          <GeoJsonLayer geoData={geoData}/>
+        {currentPointId && <ShowCurrentPoint geoData={geoData}
+                                             currentPointId={currentPointId}
+                                             defaultMapParams={defaultMapParams}/>}
+        <GeoJsonLayer geoData={geoData}/>
       </MapContainer>
     </section>
   );

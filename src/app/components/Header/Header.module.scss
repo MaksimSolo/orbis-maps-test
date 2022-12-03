@@ -11,12 +11,15 @@
   color: beige;
   font-weight: bold;
 
-  button {
+  .button {
     height: 30px;
     margin-right: 10px;
     border: medium groove aquamarine;
     border-radius: 3px;
     font-weight: inherit;
     background-color: aquamarine;
+  }
+  .active {
+      opacity: 0.5;
   }
 }

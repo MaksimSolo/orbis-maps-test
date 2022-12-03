@@ -1,15 +1,8 @@
-import React, {memo, useEffect, useState} from 'react';
+import React from 'react';
 import {TableCell, TableRow} from "@mui/material";
 import s from './../TableGeneral.module.scss'
-import {
-  inputDataElementType,
-  MapParamsType,
-  setCurrentPointIdAC,
-  toggleViewMarkerDataAC
-} from "../../../../store/layer1-reducer";
-import {useDispatch, useSelector,} from "react-redux";
-import {LatLngTuple} from "leaflet";
-import {AppRootStateType} from "../../../../store/store";
+import {inputDataElementType, setCurrentPointIdAC} from "../../../../store/layer1-reducer";
+import {useDispatch,} from "react-redux";
 
 
 type TableRowsType = {
@@ -23,18 +16,13 @@ type TableRowsType = {
 export const TableRowsData = ({element, currentPointId, setClicked, clicked}: TableRowsType) => {
 
   const dispatch = useDispatch()
-  const currentMapParams = {center: element.geometry.coordinates, zoom: 17}
-  const defaultMapParams = useSelector<AppRootStateType, MapParamsType>(state => state.layer1.defaultMapParams)
-
 
   const toggleViewMarkerData = () => {
     if (element.id) {
       setClicked(true)
-      dispatch(toggleViewMarkerDataAC(currentMapParams))
       dispatch(setCurrentPointIdAC(element.id))
       if (element.id === currentPointId && clicked) {
         setClicked(false)
-        dispatch(toggleViewMarkerDataAC(defaultMapParams))
         dispatch(setCurrentPointIdAC(''))
       }
     }

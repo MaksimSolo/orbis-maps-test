@@ -468,17 +468,15 @@ export const initialState: InitialStateType = {
     center: [38.9, -77.02],
     zoom: 11,
   },
-  currentMapParams: {
-    center: [38.9, -77.02],
-    zoom: 11,
-  },
-  currentPointId: ''
+  currentPointId: '',
+  layer: 'layer1',
 }
 
 export const layer1Reducer = (state: InitialStateType = initialState, action: Layer1ReducerActionsType): InitialStateType => {
   switch (action.type) {
     case 'LAYER1/SET-INITIAL-STATE':
     case 'LAYER1/SET-CURRENT-POINT-ID':
+    case 'LAYER1/SET-LAYER-VALUE':
       return {
         ...state, ...action.payload,
       }
@@ -487,10 +485,6 @@ export const layer1Reducer = (state: InitialStateType = initialState, action: La
         ...state, filteredData: state.inputData.filter(el => el.properties.name
           .toLowerCase().indexOf(action.payload.search.toLowerCase()) > -1),
         ...action.payload,
-      }
-    case 'LAYER1/TOGGLE-VIEW-MARKER':
-      return {
-        ...state, currentMapParams: action.payload,
       }
     default:
       return state
@@ -514,8 +508,10 @@ export const setCurrentPointIdAC = (currentPointId: string) => ({
   payload: {currentPointId}
 } as const)
 
+export const setLayerAC = (layer: LayerType) => ({type: 'LAYER1/SET-LAYER-VALUE', payload: {layer}} as const)
 
 //types
+export type LayerType = 'layer1' | 'layer2'
 export type inputDataElementType = {
   "id"?: string
   "type": string,
@@ -535,27 +531,21 @@ export type InitialStateType = {
   search: string
   filteredData: inputDataElementType[]
   defaultMapParams: MapParamsType
-  currentMapParams: MapParamsType
   currentPointId: string
+  layer: LayerType
 };
-
 export type MapParamsType = {
   center: LatLngTuple
   zoom: number
 }
-// export type CurrentMapParamsType = {
-//   center: LatLngTuple |[]
-//   zoom: number
-// }
-
 
 type SetInitialStateACType = ReturnType<typeof setInitialStateAC>
 type SetSearchedDataACType = ReturnType<typeof setSearchedDataAC>
-type ToggleViewMarkerDataACType = ReturnType<typeof toggleViewMarkerDataAC>
 type SetCurrentPointIdACType = ReturnType<typeof setCurrentPointIdAC>
+type SetLayerACType = ReturnType<typeof setLayerAC>
 
 export type Layer1ReducerActionsType =
   SetInitialStateACType
   | SetSearchedDataACType
-  | ToggleViewMarkerDataACType
   | SetCurrentPointIdACType
+  | SetLayerACType
